@@ -4,7 +4,7 @@ from Utils.func import reconstruct_path
 import pygame
 
 
-def dual(draw, grid, start, end):
+def dualbfs(draw, grid, start, end):
 	came_from_start = {}
 	came_from_end = {}
 

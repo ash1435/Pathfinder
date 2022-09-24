@@ -1,5 +1,5 @@
 from Utils.func import *
-from Algo import astar, best, bfs, dual
+from Algo import astar, best, bfs, bidirectionalbfs, bidirectionalgreedy
 
 def main(win, width):
 	ROWS = 50
@@ -46,7 +46,8 @@ def main(win, width):
 						for spot in row:
 							spot.update_neighbors(grid)
 
-					dual.dual(lambda: draw(win, grid, ROWS, width), grid, start, end)
+					# bidirectionalgreedy.dualbest(lambda: draw(win, grid, ROWS, width), grid, start, end)
+					best.best(lambda: draw(win, grid, ROWS, width), grid, start, end)
 
 				if event.key == pygame.K_c:
 					start = None
