@@ -1,5 +1,7 @@
 from Utils.func import *
 from Algo import astar, best, bfs, bidirectionalbfs, bidirectionalgreedy
+import keyboard
+
 
 def main(win, width):
 	ROWS = 50
@@ -8,12 +10,34 @@ def main(win, width):
 	start = None
 	end = None
 
-	run = True
+	run = False
+	
+	while not run:
+		draw_menu(win)
+		if keyboard.is_pressed('space'):
+			run = True
+		if keyboard.is_pressed('escape') or keyboard.is_pressed('backspace'):
+			break
+
 	while run:
 		draw(win, grid, ROWS, width)
 		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
+			if event.type == pygame.QUIT or keyboard.is_pressed('backspace'):
 				run = False
+
+			if event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_ESCAPE:
+					while run:						
+						draw_menu(win)
+						for event in pygame.event.get():
+							if event.type == pygame.QUIT or keyboard.is_pressed('backspace'):
+								run = False
+						if keyboard.is_pressed('space'):
+							start = None
+							end = None
+							grid = make_grid(ROWS, width)
+							break
+
 
 			if pygame.mouse.get_pressed()[0]:
 				pos = pygame.mouse.get_pos()

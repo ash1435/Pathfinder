@@ -1,5 +1,8 @@
 import pygame
 from Utils.spots import *
+from Utils.constants import font
+import os
+
 
 def h(p1, p2):
 	x1, y1 = p1
@@ -33,6 +36,27 @@ def draw_grid(win, rows, width):
 		for j in range(rows):
 			pygame.draw.line(win, GREY, (j * gap, 0), (j * gap, width))
 
+class Background(pygame.sprite.Sprite):
+    def __init__(self, image_file, location):
+        pygame.sprite.Sprite.__init__(self) 
+        self.image = pygame.image.load(image_file)
+        self.rect = self.image.get_rect()
+        self.rect.left, self.rect.top = location
+
+def draw_text(text, font, color, win, x, y):
+	text = font.render(text, 1, color)
+	text_rect = text.get_rect()
+	text_rect.center = (x, y)
+	win.blit(text, text_rect)
+
+def draw_menu(win):
+	win.fill(WHITE)
+	if 'unknown.png' in os.listdir('Utils'):
+		BackGround = Background('Utils/unknown.png', [0,0])
+		win.blit(BackGround.image, BackGround.rect)
+	draw_text('Pathfinding', font, BLACK, win, 410, 70)
+	draw_text('Visualizer', font, BLACK, win, 410, 140)
+	pygame.display.update()
 
 def draw(win, grid, rows, width):
 	win.fill(WHITE)

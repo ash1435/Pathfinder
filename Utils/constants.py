@@ -1,5 +1,6 @@
 import pygame
 
+
 WIDTH = 800
 WIN = pygame.display.set_mode((WIDTH, WIDTH))
 pygame.display.set_caption("Path Finder")
@@ -14,3 +15,6 @@ PURPLE = (108, 0, 108)
 ORANGE = (255, 165 ,0)
 GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
+
+pygame.init()
+font = pygame.font.SysFont(None, 100)
