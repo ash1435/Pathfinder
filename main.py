@@ -3,17 +3,16 @@ from Algo import astar, best, bfs, bidirectionalbfs, bidirectionalgreedy
 import keyboard
 
 
-def main(win, width):
-	ROWS = 50
+def main(win, width, algo):
+	ROWS =70
 	grid = make_grid(ROWS, width)
 
 	start = None
 	end = None
-
 	run = False
-	
-	while not run:
-		draw_menu(win)
+
+	while not run:		
+		draw_menu(win)	
 		if keyboard.is_pressed('space'):
 			run = True
 		if keyboard.is_pressed('escape') or keyboard.is_pressed('backspace'):
@@ -29,6 +28,51 @@ def main(win, width):
 				if event.key == pygame.K_ESCAPE:
 					while run:						
 						draw_menu(win)
+
+						mouse = pygame.mouse.get_pos()
+						click = pygame.mouse.get_pressed()
+
+						if 275 > mouse[0] > 75 and 450 > mouse[1] > 400:
+							if click[0] == 1:
+								algo = 0
+								start = None
+								end = None
+								grid = make_grid(ROWS, width)
+								break
+
+						if 275 > mouse[0] > 75 and 520 > mouse[1] > 470:
+							if click[0] == 1:
+								algo = 1
+								start = None
+								end = None
+								grid = make_grid(ROWS, width)
+								break
+
+						if 495 > mouse[0] > 295 and 450 > mouse[1] > 400:
+							if click[0] == 1:
+								algo = 2
+								start = None
+								end = None
+								grid = make_grid(ROWS, width)
+								break
+								
+						if 495 > mouse[0] > 295 and 520 > mouse[1] > 470:
+							if click[0] == 1:
+								algo = 3
+								start = None
+								end = None
+								grid = make_grid(ROWS, width)
+								break
+
+						if 715 > mouse[0] > 515 and 450 > mouse[1] > 400:
+							if click[0] == 1:
+								algo = 4
+								start = None
+								end = None
+								grid = make_grid(ROWS, width)
+								break
+
+
 						for event in pygame.event.get():
 							if event.type == pygame.QUIT or keyboard.is_pressed('backspace'):
 								run = False
@@ -69,15 +113,24 @@ def main(win, width):
 					for row in grid:
 						for spot in row:
 							spot.update_neighbors(grid)
-
-					# bidirectionalgreedy.dualbest(lambda: draw(win, grid, ROWS, width), grid, start, end)
-					best.best(lambda: draw(win, grid, ROWS, width), grid, start, end)
+							
+					if algo == 0:
+						bfs.BFS(lambda: draw(win, grid, ROWS, width), grid, start, end)
+					if algo == 1:
+						best.best(lambda: draw(win, grid, ROWS, width), grid, start, end)					
+					if algo == 2:
+						astar.algorithm(lambda: draw(win, grid, ROWS, width), grid, start, end)
+					if algo == 3:
+						bidirectionalbfs.dualbfs(lambda: draw(win, grid, ROWS, width), grid, start, end)
+					if algo == 4:
+						bidirectionalgreedy.dualbest(lambda: draw(win, grid, ROWS, width), grid, start, end)
+					
 
 				if event.key == pygame.K_c:
 					start = None
 					end = None
 					grid = make_grid(ROWS, width)
-
+	
 	pygame.quit()
 
-main(WIN, 800)
+main(WIN, 1000, 0)

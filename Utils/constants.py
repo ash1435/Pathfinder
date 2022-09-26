@@ -17,4 +17,5 @@ GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
 
 pygame.init()
-font = pygame.font.SysFont(None, 100)
+font = pygame.font.SysFont(None, 80)
+font2 = pygame.font.SysFont('dejavusansmono', 20)

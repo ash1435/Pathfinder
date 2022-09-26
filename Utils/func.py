@@ -1,6 +1,6 @@
 import pygame
 from Utils.spots import *
-from Utils.constants import font
+from Utils.constants import font, font2
 import os
 
 
@@ -50,14 +50,55 @@ def draw_text(text, font, color, win, x, y):
 	win.blit(text, text_rect)
 
 def draw_menu(win):
+	click = False
 	win.fill(WHITE)
 	if 'unknown.png' in os.listdir('Utils'):
 		BackGround = Background('Utils/unknown.png', [0,0])
 		win.blit(BackGround.image, BackGround.rect)
-	draw_text('Pathfinding', font, BLACK, win, 410, 70)
-	draw_text('Visualizer', font, BLACK, win, 410, 140)
-	pygame.display.update()
 
+	draw_text('Pathfinder', font, BLACK, win, 410, 150)
+
+	draw_text('BREADTH FIRST', font2, BLACK, win, 175, 425)
+	draw_text('BEST FIRST', font2, BLACK, win, 175, 495)
+	draw_text('A STAR', font2, BLACK, win, 395, 425)
+	draw_text('DUAL BFS', font2, BLACK, win, 395, 495)
+	draw_text('BEST FIRST', font2, BLACK, win, 615, 425)
+
+	button_1 = pygame.Rect(75, 400, 200, 50)
+	button_2 = pygame.Rect(75, 470, 200, 50)
+	button_3 = pygame.Rect(295, 400, 200, 50)
+	button_4 = pygame.Rect(295, 470, 200, 50)
+	button_5 = pygame.Rect(515, 400, 200, 50)
+	button_6 = pygame.Rect(515, 470, 200, 50)
+	
+	pygame.draw.rect(win, (200, 200, 200), button_1, 2, 3)
+	pygame.draw.rect(win, (200, 200, 200), button_2, 2, 3)
+	pygame.draw.rect(win, (200, 200, 200), button_3, 2, 3)
+	pygame.draw.rect(win, (200, 200, 200), button_4, 2, 3)
+	pygame.draw.rect(win, (200, 200, 200), button_5, 2, 3)
+	pygame.draw.rect(win, (200, 200, 200), button_6, 2, 3)
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+
+	if 275 > mouse[0] > 75 and 450 > mouse[1] > 400:
+		pygame.draw.rect(win, (200, 100, 100), button_1, 2, 3)
+	if 275 > mouse[0] > 75 and 520 > mouse[1] > 470:
+		pygame.draw.rect(win, (200, 100, 100), button_2, 2, 3)
+	if 495 > mouse[0] > 295 and 450 > mouse[1] > 400:
+		pygame.draw.rect(win, (200, 100, 100), button_3, 2, 3)
+	if 495 > mouse[0] > 295 and 520 > mouse[1] > 470:
+		pygame.draw.rect(win, (200, 100, 100), button_4, 2, 3)
+	if 715 > mouse[0] > 515 and 450 > mouse[1] > 400:
+		pygame.draw.rect(win, (200, 100, 100), button_5, 2, 3)
+
+	smallText = pygame.font.SysFont("comicsansms",20)
+    # textSurf, textRect = text_objects(msg, smallText)
+    # textRect.center = ( (x+(w/2)), (y+(h/2)) )
+    # gameDisplay.blit(textSurf, textRect)
+
+	pygame.display.update()
+	
+	
 def draw(win, grid, rows, width):
 	win.fill(WHITE)
 
