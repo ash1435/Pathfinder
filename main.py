@@ -9,14 +9,8 @@ def main(win, width, algo):
 
 	start = None
 	end = None
-	run = False
+	run = True
 
-	while not run:		
-		draw_menu(win)	
-		if keyboard.is_pressed('space'):
-			run = True
-		if keyboard.is_pressed('escape') or keyboard.is_pressed('backspace'):
-			break
 
 	while run:
 		draw(win, grid, ROWS, width)

@@ -56,19 +56,15 @@ class Spot:
 	def update_neighbors(self, grid):
 		self.neighbors = []
 
-		if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # UP
+		if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): 
 			self.neighbors.append(grid[self.row - 1][self.col]) 
 
-		if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # LEFT
-			self.neighbors.append(grid[self.row][self.col - 1])
+		if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): 
+			self.neighbors.append(grid[self.row][self.col - 1])	
 
-			
-
-		
-
-		if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier(): # RIGHT
+		if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier():
 			self.neighbors.append(grid[self.row][self.col + 1])
-		if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # DOWN
+		if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): 
 			self.neighbors.append(grid[self.row + 1][self.col])	
 
 		

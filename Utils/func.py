@@ -57,26 +57,25 @@ def draw_menu(win):
 		win.blit(BackGround.image, BackGround.rect)
 
 	draw_text('Pathfinder', font, BLACK, win, 410, 150)
-
 	draw_text('BREADTH FIRST', font2, BLACK, win, 175, 425)
 	draw_text('BEST FIRST', font2, BLACK, win, 175, 495)
 	draw_text('A STAR', font2, BLACK, win, 395, 425)
 	draw_text('DUAL BFS', font2, BLACK, win, 395, 495)
-	draw_text('BEST FIRST', font2, BLACK, win, 615, 425)
+	draw_text('DUAL BEST FIRST', font2, BLACK, win, 615, 425)
 
 	button_1 = pygame.Rect(75, 400, 200, 50)
 	button_2 = pygame.Rect(75, 470, 200, 50)
 	button_3 = pygame.Rect(295, 400, 200, 50)
 	button_4 = pygame.Rect(295, 470, 200, 50)
 	button_5 = pygame.Rect(515, 400, 200, 50)
-	button_6 = pygame.Rect(515, 470, 200, 50)
+	
 	
 	pygame.draw.rect(win, (200, 200, 200), button_1, 2, 3)
 	pygame.draw.rect(win, (200, 200, 200), button_2, 2, 3)
 	pygame.draw.rect(win, (200, 200, 200), button_3, 2, 3)
 	pygame.draw.rect(win, (200, 200, 200), button_4, 2, 3)
 	pygame.draw.rect(win, (200, 200, 200), button_5, 2, 3)
-	pygame.draw.rect(win, (200, 200, 200), button_6, 2, 3)
+	
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 
