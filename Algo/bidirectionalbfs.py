@@ -1,5 +1,4 @@
 from collections import deque
-from queue import PriorityQueue
 from Utils.func import reconstruct_path
 import pygame
 

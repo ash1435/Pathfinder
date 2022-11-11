@@ -12,7 +12,6 @@ def best(draw, grid, start, end):
 	f_score[start] = h(start.get_pos(), end.get_pos())
 
 	open_set_hash = {start}
-	x = time.time()
 	while not open_set.empty():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -22,7 +21,6 @@ def best(draw, grid, start, end):
 		open_set_hash.remove(current)
 
 		if current == end:
-			print(time.time()-x)
 			reconstruct_path(came_from, end, draw, start)
 			end.make_end()
 			return True
