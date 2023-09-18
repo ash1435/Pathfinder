@@ -1,4 +1,4 @@
 # Pathfinder
 A vizualisation approach to better understand a few pathifinding algorithms that you may come across.
 
-<img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" width="500" height="500"/>
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/99168099/268783214-a0465d9a-657e-43ac-9cb5-2ffdb6c8fefe.png" width="500" height="500"/>
